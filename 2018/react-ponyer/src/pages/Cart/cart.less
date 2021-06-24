@@ -1,0 +1,139 @@
+@import '../../libs//less/vars.less';
+.cart{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  &-content{
+    flex: 1;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    &-item{
+      background-color: #fff;
+      height: 20%;
+      width: 100%;
+      margin-top: 2.5%;
+      display: flex;
+      padding: 2.5%;
+      &-left{
+        text-align: center;
+        height: 100%;
+        width:30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        .icon-fuxuan-active{
+          color: #11b57c;
+        }
+        &-image{
+          width: 66%;
+          height: 100%;
+          overflow: hidden;
+          margin-left: 5%;
+          >img{
+            width: 100%;
+          }
+        }
+      }
+      &-right{
+        width: 70%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &-top{
+          display: flex;
+          justify-content: space-between;
+          &-title{
+            font-size: 14px;
+            width: 70%;
+          }
+          &-delete{
+            >i{
+              font-size: 19px;
+              cursor: pointer;
+            }
+          }
+        }
+        &-bottom{
+          display: flex;
+          justify-content: space-between;
+          height: 40%;
+          &-price{
+            color: #fb3d3d;
+            font-size: 14px;
+          }
+          &-count{
+            border: 1px solid #ccc;
+            width: 30%;
+            text-align: center;
+            display: flex;
+            >span{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 33.3%;
+              height: 100%;
+              cursor: pointer;
+            }
+            >.txt{
+              border-left: 1px solid #ccc;
+              border-right: 1px solid #ccc;
+            }
+          }
+        }
+      }
+    }
+    &-guess{
+      margin-top: 2.5%;
+      background-color: #fff;
+      width: 100%;
+      overflow: hidden;
+      &-title{
+        margin: 3% 0;
+        text-align: center;
+      }
+      &-list{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    }
+  }
+  &-tabbar{
+    height: 52px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid @border-color;
+    background-color: #fff;
+    text-align: center;
+    line-height: 52px;
+    font-size: 13px;
+    &-left{
+      width: 20%;
+      >i{
+        margin-right: 5px;
+        cursor: pointer;
+      }
+      .icon-fuxuan-active{
+        color: #11b57c;
+      }
+    }
+    &-center{
+      width: 50%;
+      >span{
+        color: #fb3d3d;
+        font-size: 15px;
+      }
+    }
+    &-right{
+      width: 30%;
+      background-color: #fb3d3d;
+      color: #ffe;
+      cursor: pointer;
+    }
+  }
+}

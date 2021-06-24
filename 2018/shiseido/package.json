@@ -1,0 +1,26 @@
+{
+  "name": "shiseido",
+  "version": "1.0.0",
+  "description": "PC电商项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:ahuang6027/shiseido.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1"
+  }
+}

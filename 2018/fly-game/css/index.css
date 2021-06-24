@@ -1,0 +1,29 @@
+#container{
+	width: 320px;
+	height: 568px;
+	position: relative;
+	margin: 50px auto;
+	border: 1px solid;
+	overflow: hidden;
+}
+#start {
+	width: 320px;
+	height: 568px;
+	background: url(images/start_bg.png);
+}
+
+#game {
+	width: 320px;
+	height: 568px;
+	background: url(images/bg.png);
+	position: relative;
+}
+
+#self {
+	width: 66px;
+	height: 80px;
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	background: url(images/self.gif);
+}

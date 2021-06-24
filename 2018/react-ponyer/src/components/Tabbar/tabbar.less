@@ -1,0 +1,28 @@
+@import '../../libs/less/vars.less';
+.mp{
+  &-tabbar{
+    display: flex;
+    border-top: 1px solid @border-color;
+    background-color: #fff;
+    &-item{
+      flex: 1;
+      text-align: center;
+      color: @item-font-color;
+      &.active{
+        color: @active-color;
+      }
+      &-icon{
+        height: 38px;
+        line-height: 38px;
+        i{
+          font-size: 25px;
+        }
+      }
+      &-text{
+        height: 26px;
+        line-height: 26px;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+$width:978px;
+.page_title{
+	width: $width;
+	height: 175px;
+	margin: 0 auto;
+	padding: 25px 15px 0 17px;
+	.page_index{
+		height: 64px;
+		font-size: 12px;
+		color: #b2b2b2;
+	}
+	h2{
+		height: 48px;
+		font-weight: normal;
+		font-size: 24px;
+		color: #670205;
+	}
+	.list_index{
+		float: right;
+		height: 37px;
+		font-size: 12px;
+		ul{float: left;}
+		
+		.in_right{
+			float: left;
+			margin-left: 118px;
+			.sort{
+				float: left;
+				margin-right:10px;
+				span{margin: 0 10px;}
+			}
+			.total{
+				float: left;
+				span{padding-left: 8px;}
+			}
+		}
+	}
+}
+.content{
+// 	width: $width;
+// 	// justify-content: flex-start;
+// 	align-items: flex-start;
+// 	// height: 2318px;
+// 	margin: 0 auto;
+// 	.left_index{
+// 		width: 138px;
+// 		// height: 100%;
+// 		line-height: 36px;
+// 		// float:left;
+// 		.index{
+// 			font-size: 12px;
+// 			width: 138px;
+// 			h3 a{
+// 				width: 100%;
+// 				height: 36px;
+// 				display: inline-block;
+// 				font-weight: normal;
+// 				color: #666666;
+// 				padding: 0 14px 0 12px;
+// 				background: url(/images/arrow_left.jpg) no-repeat 115px center;
+// 			}
+// 			ul{
+// 				display: none;
+// 				li{
+// 					width: 100%;
+// 					height: 36px;
+// 					padding-left: 22px;
+// 					border-left: 1px solid #670205;
+// 					a{color: #666666;}
+// 				}
+// 			} 
+// 		}
+// 	}
+	.main_content{
+		// float: right;
+		width: 840px;
+		// height: 100%;
+		flex-flow: wrap;
+		dl{
+			height: 462px;
+			width: 230px;
+			font-size: 14px;
+			line-height: 24px;
+			a{color: #000000;}
+			dt{
+				width: 100%;
+				height: 232px;
+				border: 1px solid #d8d8d8;
+				margin-bottom: 8px;
+				img{width: 228px;}
+			}
+			.money{
+				color: #670205;
+				margin-bottom: 13px;
+			}
+			.add_cart{margin-bottom: 10px;}
+		}
+	}
+}
+.page{
+	width: $width;
+	height: 40px;
+	margin: 0 auto;
+	ul{
+		font-size: 12px;
+		margin-left: 528px;
+	}
+}

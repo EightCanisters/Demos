@@ -1,0 +1,93 @@
+<view class="mine">
+  <view class="mine-header">
+    <view class="mine-header-img">
+      <text wx:if="{{isLogin===false}}">未登录</text>
+      <image wx:else src="{{userImg}}"></image>
+    </view>
+    <view class="mine-header-logout" catchtap="logout">注销</view>
+    <button wx:if="{{userName === ''}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">登录</button>
+    <text wx:if="{{userName !== ''}}">{{userName}}</text>
+  </view>
+  <view class="mine-content">
+    <view class="weui-panel__bd mine-content-dd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells">
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd">
+              <text>我的订单</text>
+            </view>
+            <text class="weui-cell__ft">></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="mine-content-data">
+      <view class="mine-content-data-item" wx:for="{{datas}}" wx:key="{{item.text}}">
+        <icon class="iconfont icon-{{item.icon}}"></icon>
+        <view>{{item.text}}</view>
+      </view>
+    </view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells">
+          <view class="weui-cell weui-cell_access" catchtap="toPageAddress">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <text>地址管理</text>
+            </view>
+            <text class="weui-cell__ft">></text>
+          </view>
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <text>我的优惠券</text>
+            </view>
+            <text class="weui-cell__ft">></text>
+          </view>
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <text>意见反馈</text>
+            </view>
+            <text class="weui-cell__ft">></text>
+          </view>
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <text>客服QQ</text>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <text>常见问题</text>
+            </view>
+            <text class="weui-cell__ft">></text>
+          </view>
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+              <image src="/assets/images/music.png"></image>
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <text>正品保证</text>
+            </view>
+            <text class="weui-cell__ft">></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

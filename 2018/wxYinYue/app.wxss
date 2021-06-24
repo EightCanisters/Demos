@@ -1,0 +1,8 @@
+/**app.wxss**/
+@import "libs/wxss/reset.wxss";
+@import "libs/wxss/icon.wxss";
+page{
+  height: 100%;
+  width: 100%;
+  background-color: #f4f4f8;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>仿制版list</title>
+		<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/list.css"/>
+	</head>
+	<body>
+		<!-- 头部 -->
+		<header></header>
+		<div class="page_title">
+			<div class="page_index"></div>
+			<h2 class="page_h2">彩妆</h2>
+			<div class="list_index">
+				<ul class="page_css">
+					<li><img src="/images/arrow.jpg" ></li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li><img src="/images/next.jpg" ></li>
+				</ul>
+				<div class="in_right">
+					<div class="sort">
+						<img src="/images/loudou.png" >
+						<span>排序</span>
+						<img src="/images/down.png">
+					</div>
+					<div class="total">产品总数：<span>36</span></div>
+				</div>
+			</div>
+		</div>
+		<!-- 内容 -->
+		<div class="content content_display_noGap">
+			<div class="left_index">
+				<div class="index">
+					<h3><a>面部</a></h3>
+					<ul>
+						<li><a href="#">妆前乳</a></li>
+						<li><a href="#">粉底</a></li>
+						<li><a href="#">遮瑕</a></li>
+					</ul>
+				</div>
+				<div class="index">
+					<h3><a>面部</a></h3>
+					<ul>
+						<li><a href="#">妆前乳</a></li>
+						<li><a href="#">粉底</a></li>
+						<li><a href="#">遮瑕</a></li>
+					</ul>
+				</div>
+				<div class="index">
+					<h3><a>面部</a></h3>
+					<ul>
+						<li><a href="#">妆前乳</a></li>
+						<li><a href="#">粉底</a></li>
+						<li><a href="#">遮瑕</a></li>
+					</ul>
+				</div> 
+			</div>
+			<div class="main_content content_display">
+				
+			</div>
+			
+			<script type="text/html" id="l_list_temp">
+				<% for (var i = 0; i < 15; i++) { var curr=list[i]; %>
+					<dl class="content_center" data-id="<%= curr.id %>">
+						<dt><a href="/html/detail.html?id=<%= curr.id %>"><img src="<%= curr.img3_list %>" class="curr_img"></a></dt>
+						<dd><a href="/html/detail.html?id=<%= curr.id %>" class="curr_title"><%= curr.title %></a></dd>
+						<p><%= curr.volume %>mL</p>
+						<p class="money curr_price">￥<%= curr.price %></p>
+						<button class="add_cart">加入购物车</button>
+						<button class="list_detail">详情</button>
+					</dl>
+				<% } %>
+			</script>
+		</div>
+		<div class="page">
+			<ul class="page_css">
+				<li><img src="/images/arrow.jpg" ></li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li><img src="/images/next.jpg" ></li>
+			</ul>
+		</div>
+		<!-- 尾部 -->
+		<footer></footer>
+		<script src="/lib/requirejs/require.js" data-main = "/js/list.js"></script>
+	</body>
+</html>

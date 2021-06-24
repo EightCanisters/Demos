@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>shiseido仿制版</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+	<!-- 头部 -->
+	<header></header>
+	<!-- banner部分 -->
+	<div class="banner"></div>
+	<!-- 礼盒部分 -->
+	<div class="present content_display"></div>
+	
+	<script type="text/html" id="present_temp">
+		<% for (var i = 0; i < 4; i++) { var curr=present[i]; %>
+			<dl class="content_center" data-id="<%= curr.id %>">
+				<dt><a href="/html/detail.html?id=<%= curr.id %>"><img src="<%= curr.img2 %>" class="curr_img"></a></dt>
+				<dd><a href="/html/detail.html?id=<%= curr.id %>" class="curr_title" ><%= curr.title %></a></dd>
+				<p style="display: none;" class="curr_price">¥<%= curr.price %></p>
+				<button class="add_cart">加入购物车</button>
+			</dl>
+		<% } %>
+	</script>
+	<!-- 商品展示 -->
+	<div class="display">
+		<h3 class="title">新品上市</h3>
+		<div class="d_content content_display"></div>
+	</div>
+	<script type="text/html" id="list_temp">
+		<% for (var i = 0; i < 4; i++) { var curr=list[i]; %>
+			<dl class="content_center" data-id="<%= curr.id %>">
+				<dt><a href="/html/detail.html?id=<%= curr.id %>"><img src="<%= curr.img1 %>" class="curr_img"></a></dt>
+				<dd><a href="/html/detail.html?id=<%= curr.id %>" class="curr_title" ><%= curr.title %></a></dd>
+				<p><%= curr.volume %>ml</p>
+				<p class="curr_price">¥<%= curr.price %></p>
+				<button class="add_cart">加入购物车</button>
+			</dl>
+		<% } %>
+	</script>
+	
+	<!-- 最新资讯 -->
+	<div class="news">
+		<h3 class="title">最新资讯</h3>
+		<a href="#"><img src="/images/news.png" ></a>
+	</div>
+	<!-- 尾部 -->
+	<footer></footer>
+	
+	<script src="/lib/requirejs/require.js" data-main="/js/index.js"></script>
+</body>
+</html>

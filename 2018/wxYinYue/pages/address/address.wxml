@@ -1,0 +1,45 @@
+<view class="address">
+  <view class="address-main">
+    <view class="address-main-item" wx:for="{{addresses}}" wx:key="{{Math.random()+address}}">
+      <view class="address-main-item-top">
+        <view class="address-main-item-top-user">{{item.username}}</view>
+        <view class="address-main-item-top-bonile">{{item.mobile}}</view>
+        <button type="warn" size="mini" data-id="{{item.id}}" catchtap="deleteOneAddress">删除</button>
+      </view>
+      <view class="address-main-item-bottom">{{item.address}}</view>
+    </view>
+  </view>
+  <view class="address-modal"  wx:if="{{isModalShow}}">
+    <view class="address-modal-content">
+      <view class="address-modal-content-cha">
+        <text>请输入地址信息</text>
+        <icon class="iconfont icon-cha" catchtap="closeModal"></icon>
+      </view>
+      <view class="weui-cells weui-cells_form">
+        <view class="weui-cell">
+          <view class="weui-cell__hd input-name"><label class="weui-label">姓名</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入姓名" bindinput="inputUsername" value="{{username}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd input-name"><label class="weui-label">手机</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" bindinput="inputMobile" value="{{mobile}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd input-name"><label class="weui-label">地址</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="点击获取地址" catchtap="selectAddress" value="{{address}}" disabled="{{true}}"></input>
+          </view>
+        </view>
+        <view>
+          <button type="primary" class="weui-btn weui-btn_mini weui-btn_primary" catchtap="addOneAddress">确定</button>
+          <button class="weui-btn weui-btn_mini weui-btn_primary" catchtap="closeModal" type='warn'>取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="address-submit" type="warn" catchtap="addAddress">新增</button>
+</view>

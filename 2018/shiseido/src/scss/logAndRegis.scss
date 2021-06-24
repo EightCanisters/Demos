@@ -1,0 +1,196 @@
+$width:1100px;
+$color:#ffffff;
+$font_color:#000000;
+$border_color:#cccccc;
+.content{
+	width: $width;
+	height: 1180px;
+	margin: 0 auto;
+	padding-right: 120px;
+	overflow: hidden;
+	.route{
+		width: 980px;
+		height: 195px;
+		margin-top: 24px;
+		margin-bottom:32px;
+		img{width: 188px;}
+		li{
+			position: relative;
+			.in_top{
+				width: 182px;
+				height: 37px;
+				text-align: center;
+				line-height: 37px;
+				font-size: 13px;
+				color: $color;
+				background: #aeb0b3;
+				position: absolute;
+				left: 6px;
+				top: 12px;
+				border-top-left-radius:15px;
+				border-bottom-left-radius:15px;
+				span{
+					float: left;
+					width: 51px;
+					height: 51px;
+					line-height: 51px;
+					border-radius: 50%;
+					background: #a81519;
+					font-size: 35px;
+					position: absolute;
+					left: 0;
+					top: -7px;
+				}
+			}
+		}
+	}
+	.logRegis{
+		width: 980px;
+		height: 902px;
+		color: $font_color;
+		font-size: 12px;
+		//公共input框样式
+		.form_input{
+			height: 26px;
+			width: 170px;
+			line-height: 26px;
+			padding-left: 5px;
+			color: $border_color;
+			border: 1px solid $border_color;
+		}
+		//公共form样式
+		>form{border: 1px solid $border_color;}
+		//公共头部标题
+		.l_title{
+			width: 100%;
+			height: 52px;
+			margin-top: 40px;
+			// text-align: center;
+			h4{
+				height: 28px;
+				font-weight: normal;
+				font-size: 18px;
+			}
+			p{
+				height: 24px;
+				line-height: 24px;
+				font-size: 14px;
+			}
+		}
+		//公共部分保护方针
+		.protect{
+			width: 100%;
+			.protect_para{
+				border: 1px solid $border_color;
+				padding: 8px 18px 0 9px;
+				line-height: 26px;
+			}
+		}
+		//公共同意
+		.itemCheck{
+			height: 12px;
+			line-height: 12px;
+			// text-align: center;
+			input{
+				width: 12px;
+				height: 12px;
+				border: 1px solid $border_color;
+				border-radius: 2px;
+			}
+		}
+		//公共form_btn
+		.form_btn{
+				width: 85px;
+				height: 30px;
+				background: #9e1503;
+				line-height: 30px;
+				color: $color;
+				border: none;
+			}
+		.form_login{
+			width: 425px;
+			height: 446px;
+			float: left;
+			.itemCheck{text-align: center;}
+			.log_input {
+				p{
+					width: 170px;
+					height: 49px;
+					margin-top: 14px;
+					font-size: 12px;
+					a{color: $font_color;}
+				}
+				input{margin-top: 10px;}
+			}
+			.form_btn{
+				margin-left: 170px;
+				margin-top: 15px;
+			}
+			.protect{
+				height: 145px;
+				div{ 
+					height: 108px;
+					margin-top: 6px;
+					line-height: 26px;
+				}
+			}
+		}
+		.form_register{
+			float: right;
+			width: 525px;
+			height: 925px;
+			input{margin: 11px 0;}
+			i{
+				font-style: italic;
+				color: #9d1c32;
+			}
+			.confirm :nth-child(2){
+				width: 18px;
+				height: 18px;
+				border-radius: 2px;
+				margin: 16px 10px 0 15px;
+				background: #FFFFFF;
+			}
+			.image_txt{width: 78px;}
+			.txt_txt{width: 95px;}
+			.b_year{width: 30px;}
+			.b_month{width: 17px;}
+			.b_day{width: 11px;}
+			.b_day,.b_month,.b_year{
+				color: $font_color;
+				appearance: none;
+				-webkit-appearance: none;
+				padding: 0;
+			}
+			.birth{margin-bottom: 7px;}
+			.sex{
+				margin-top: 15px;
+				>input{margin-right: 5px;}
+			}
+			.protect{
+				div{
+					height: 45px;
+					width: 100%;
+					border-top: 1px dashed $border_color;
+					line-height: 45px;
+				}
+				textarea{
+					width: 490px;
+					height: 142px;
+					margin-left: 2px;
+				}
+			}
+			.itemCheck{
+				text-align: right;
+				margin-top: 11px;
+				margin-bottom: 25px;
+				input{margin: 0;}
+			}
+			.form_last{
+				margin-left: 173px;
+			}
+		}
+		
+		
+	}
+}

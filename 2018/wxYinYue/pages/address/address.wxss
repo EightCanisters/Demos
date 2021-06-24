@@ -1,0 +1,80 @@
+/* pages/address/address.wxss */
+@import "../../libs/weui/weui.wxss";
+.address{
+  width: 100%;
+  height: 100%；
+}
+.address-submit{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.address-modal{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 100;
+}
+.address-modal-content-cha{
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.address-modal-content-cha>icon{
+  float: right;
+}
+.address-modal-content{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background-color: #fff;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+}
+.weui-cells_form{
+  margin-top: 0;
+}
+.address-main-item{
+  background: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-top: 15rpx;
+  padding: 0 30rpx;
+}
+.address-main-item-top{
+  width: 100%;
+  height: 80rpx;
+  border-bottom: 1px solid #eff0f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 34rpx;
+  color: #333;
+}
+.address-main-item-top-user{
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.address-main-item-bottom{
+  height: 125rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.input-name{
+  margin-right: 20rpx;
+  font-size: 34rpx;
+}
+.address .weui-label{
+  font-size: 32rpx;
+}

@@ -1,0 +1,110 @@
+<view class="home">
+  <view class="home-search">
+    <view class="home-search-location" catchtap="toPageAddress">
+      <icon class="iconfont icon-location"></icon>
+      <text>{{currentCity===''?'定位中...':currentCity}}</text>
+    </view>
+    <input 
+      type='text' 
+      placeholder='搜索偶像、商品' 
+      placeholder-class="home-search-place" 
+      class="home-search-input"
+      catchtap="toPageSearch"
+    ></input>
+  </view>
+  <view scroll-y class="home-content">
+    <swiper indicator-dots autoplay class="home-content-swiper">
+      <block wx:for="{{swiper}}" wx:key="{{item.href}}">
+        <swiper-item>
+          <image src="{{item.img}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="home-content-nav">
+      <view
+        wx:for="{{nav}}" 
+        wx:key="{{item.href}}" 
+        class="home-content-nav-item"
+        data-keyword="{{item.name}}"
+        catchtap="toPageList"
+      >
+        <view><image src="{{item.img}}"></image></view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+    <view class="home-content-main">
+      <!-- 新品首发 -->
+      <view class="home-content-new">
+        <view 
+          class="content-head" 
+          data-keyword="新品首发"
+          data-type="新品首发"
+          catchtap="toPageList"
+        >
+          <view class="content-head-left">
+            <view class="content-head-title">新品首发</view>
+            <text>最新专辑、周边上架</text>
+          </view>
+          <view class="content-head-more">MORE ></view>
+        </view>
+        <view class="new-main">
+          <view 
+            class="content-item" 
+            wx:for="{{news}}" 
+            wx:key="{{item[0].headImg}}"
+            data-id="{{item[0].id}}"
+            catchtap="toPageDetail"
+          >
+            <image src="{{item[0].headImg}}" class="content-img"></image>
+            <text class="content-txt">{{item[0].title}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 热门艺人 -->
+      <view class="home-content-hot">
+        <view 
+        class="content-head"
+        >
+          <view class="content-head-title">热门艺人</view>
+          <view class="content-head-more">MORE ></view>
+        </view>
+        <view class="hot-nav">
+          <image
+            src='{{item.img}}'
+            wx:for="{{hots}}"
+            wx:key="{{item.id}}"
+            class="{{item.name === currentHot[0].artistName?'active':''}}"
+            data-artistid="{{item.id}}"
+            data-artistname="{{item.name}}"
+            catchtap="getHotsData"
+          ></image>
+        </view>
+        <text
+          class="hot-name"
+          data-keyword="{{currentHot[0].artistName}}"
+          data-type="热门艺人"
+          catchtap="toPageList"
+        >{{currentHot[0].artistName}} ></text>
+        <view class="hot-main">
+          <view 
+            class="content-item" 
+            wx:for="{{currentHot}}" 
+            wx:key="{{item.headImg}}"
+            data-id="{{item.id}}"
+            catchtap="toPageDetail"
+          >
+            <image src="{{item.headImg}}" class="content-img"></image>
+            <text class="content-txt">{{item.title}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 主题活动 -->
+      <view class="home-content-activity">
+        <view class="content-head">
+          <view class="content-head-title">主题活动</view>
+          <view class="content-head-more">MORE ></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

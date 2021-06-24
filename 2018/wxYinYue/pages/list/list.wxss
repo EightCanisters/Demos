@@ -1,0 +1,138 @@
+.list{
+  height: 100%;
+  width: 100%;
+  color: #4c4d53;
+  background-color: #fff;
+}
+.list-main{
+  width: 100%;
+  height: 100%;
+  padding: 0 30rpx;
+}
+::-webkit-scrollbar{
+  width: 0px;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+/* 头 */
+/* 发布时间 */
+.list-main-select{
+  width: 100%;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-size: 27rpx;
+}
+.list-main-select-left{float: left;}
+.list-main-select-time{
+  float: right;
+}
+.list-main-select-time icon{
+  margin-left: 12rpx;
+  font-size: 18rpx;
+  color: #ff4683;
+}
+.list-main-select-filter{float: right;}
+
+/* 下边的modal */
+.list-main-bottom-mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 100;
+}
+.list-main-bottom-mask-content{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background-color: #fff;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+}
+.list-main-bottom-mask-content-title{
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.list-main-bottom-mask-content-title>icon{
+  position: absolute;
+  right: 0;
+  top: 5%;
+  font-size: 26rpx;
+  color: #666;
+}
+.list-main-bottom-mask-content-options{
+  height: 80%;
+}
+.list-main-bottom-mask-content-options-item{
+  height: 25%;
+  border-top: 1px dotted #d5d5d5;
+}
+.list-main-bottom-mask-content-options-item>icon{
+  margin-right: 20rpx;
+  color: #ccc;
+  font-size: 32rpx;
+}
+
+/* content */
+.list-main-content{
+  width: 100%;
+}
+.list-main-content-item{
+  width: 100%;
+  height: 280rpx;
+  font-size: 26rpx;
+  display: flex;
+  padding: 16rpx 0;
+  justify-content: space-between;
+}
+.list-main-content-item-img{
+  width: 40%;
+  height: 326rpx;
+  text-align: center;
+}
+.list-main-content-item-img>image{
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 20rpx;
+}
+.list-main-content-item-right{
+  width: 58%;
+  padding: 4% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.list-main-content-item>text{
+  height: 72rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 2% 0;
+}
+.list-main-content-item-txt{
+  font-weight: bold;
+  color: #ff4683
+}
+.list-main-content-item-txt>text{
+  color: #ced0dd;
+  margin-left: 2%;
+  text-decoration: line-through;
+}
+.list-main-footer{
+  width: 100%;
+  text-align: center;
+  margin: 4% 0;
+  color: #999;
+  font-size: 30rpx;
+}

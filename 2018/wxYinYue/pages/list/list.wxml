@@ -1,0 +1,61 @@
+<view class="list">
+  <!-- mask -->
+  <view class="list-main-bottom-mask" wx:if="{{isShowBottomMask}}">
+    <view class="list-main-bottom-mask-content">
+      <view class="list-main-bottom-mask-content-title">
+        排序
+        <icon class="iconfont icon-cha" catchtap="closeBottomMask"></icon>
+      </view>
+      <view class="list-main-bottom-mask-content-options">
+        <view 
+          class="list-main-bottom-mask-content-options-item"
+          wx:for="{{bottomMaskData}}"
+          wx:key="item.text"
+          data-type="{{item.type}}"
+          data-title="{{item.text}}"
+          catchtap="selectTimeTap"
+        >
+          <icon class="iconfont icon-{{item.icon}}"></icon>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 内容 -->
+  <scroll-view
+    class="list-main"
+    scroll-y="false"
+    bindscrolltolower="loadMore"
+    bindscrolltoupper="refresh"
+    lower-threshold="150"
+  >
+    <view class="list-main-select">
+      <view class="list-main-select-left">相关商品</view>
+      <view class="list-main-select-time">
+        <text catchtap="openBottomMask">{{currentSelect}}</text>
+        <icon class="iconfont icon-single"></icon>
+      </view>
+    </view>
+    <view class="list-main-content">
+      <view
+        class="list-main-content-item" 
+        wx:for="{{pageDatas}}" 
+        wx:key="{{item.id}}"
+        data-id="{{item.id}}"
+        catchtap="toPageDetail"
+      >
+        <view class="list-main-content-item-img"><image src="{{item.headImg}}"></image></view>
+        <view class="list-main-content-item-right">
+          <text>{{item.title}}</text>
+          <view class="list-main-content-item-txt">
+            ￥{{item.price}}
+            <text>￥{{item.originalPrice?item.originalPrice:item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='list-main-footer' wx:if="{{currentPage === totalPage-1}}">
+      嘤嘤嘤，到底了。。。
+    </view>
+  </scroll-view>
+</view>

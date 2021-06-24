@@ -1,0 +1,188 @@
+.cart{
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  color: #666;
+}
+.cart-content{
+  width: 100%;
+  flex: 1;
+  overflow-x: hidden;
+}
+
+.cartlist{
+  width: 100%;
+}
+.cartlist-item{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  margin: 20rpx 0;
+  padding: 20rpx 30rpx;
+}
+.cartlist-item>icon{
+  width: 8%;
+  color: #bbb;
+  font-size: 44rpx;
+}
+.cartlist-item>.icon-xuanzhong{
+  font-size: 40rpx;
+  color: #de1f1f;
+}
+.cartlist-item-img{
+  margin-right: 4%;
+}
+.cartlist-item-img>image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+}
+.cartlist-item-right{
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+.cartlist-item-right-top{
+  height: 120rpx;
+}
+.cartlist-item-right-top>text{
+  margin-top: 3%;
+  color: #333;
+}
+.cartlist-item-right-top-count{
+  width: 200rpx;
+  height: 70rpx;
+  color: #333;
+  line-height: 70rpx;
+  border: 1px solid #d0d0d0;
+  display: flex;
+}
+.cartlist-item-right-top-count>text{
+  text-align: center;
+}
+.cartlist-item-right-top-count .btn{
+  width: 27%;
+  height: 100%;
+}
+.cartlist-item-right-top-count .txt{
+  width: 45%;
+  border-left: 1px solid #d0d0d0;
+  border-right: 1px solid #d0d0d0;
+}
+.cartlist-item-right-bottom{
+  height: 25px;
+  color: #de1f1f;
+  font-weight: bold;
+}
+.cartlist-item-right-bottom>text{
+  float: right;
+}
+.cartlist-item-right-bottom-count{
+  vertical-align: super;
+  font-size: 24rpx;
+  color: #666;
+  margin-left: 2%;
+  font-weight: normal;
+}
+
+/* 空购物车 */
+.cart-content-empty{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 10%;
+}
+.cart-content-empty-img{
+  width: 45%;
+  text-align: center;
+}
+.cart-content-empty-img>image{
+  width: 280rpx;
+  height: 280rpx;
+}
+.cart-content-empty>view{
+  color: gray;
+  margin-bottom: 5%;
+}
+.cart-content-empty>button{
+  width: 40%;
+  height: 90rpx;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #cf3131;
+  outline: none;
+}
+
+/* 底部 */
+.cart-footer{
+  height: 104rpx;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+  line-height: 104rpx;
+}
+.cart-footer .icon-xuanzhong{
+  font-size: 40rpx;
+  color: #de1f1f;
+}
+.cart-footer-left{
+  /* display: flex;
+  align-items: center; */
+  width: 30%;
+}
+.cart-footer-left>icon{
+  color: #aaa;
+  font-size: 44rpx;
+  margin-right: 3%;
+  width: 44rpx;
+}
+.cart-footer-left>view{
+  /* margin-left: 4%; */
+  width: 82rpx;
+  height: 100%;
+  padding: 0 4%;
+  color: #cf3131;
+  float: right;
+}
+
+.cart-footer-right{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-footer-right>text{
+  color: de1f1f;
+  font-weight: bold;
+  margin-right: 3%;
+}
+.cart-footer-right>button{
+  width: 200rpx;
+  height: 100%;
+  background-color: #cf3131;
+  color: #fff;
+  border-radius: 0;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-footer-right-finish{
+  float: right;
+  padding: 0 4%;
+  color: #cf3131;
+  line-height: 104rpx;
+}

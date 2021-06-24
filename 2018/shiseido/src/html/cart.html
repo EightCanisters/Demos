@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>仿制版|购物车</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/css/cart.css" />
+</head>
+
+<body>
+	<!-- 头部 -->
+	<header></header>
+
+	<!-- 购买步骤 -->
+	<div class="step">
+			<ul class="shopping_step">
+			<li class="shopping_step_item active">购物车 </li>
+			<span class="w_arrow_r"></span>
+			<li class="shopping_step_item">
+				<a href="/html/confirm.html">订单信息</a>
+			</li>
+			<span class="w_arrow_r"></span>
+			<li class="shopping_step_item">确认及付款</li>
+			<span class="w_arrow_r"></span>
+			<li class="shopping_step_item">完成</li>
+		</ul>
+	</div>
+	<!-- 购物车为空 -->
+	<div class="no_goods">购物车内没有商品</div>
+	<!-- 购物车不为空信息 -->
+	<div class="goods_info hide">
+		<table class="cart_main" border="0" bordercolor="#7c0d02" width="100%">
+			<thead>
+				<tr>
+					<td class="">商品</td>
+					<td class="">&nbsp;</td>
+					<td class="">单价（元）</td>
+					<td class="">数量</td>
+					<td>小计（元）</td>
+					<td style="width:140px">操作</td>
+				</tr>
+			</thead>
+			<!-- 购物车条目 -->
+			<tbody class="cart_item">
+				
+			</tbody>
+			<!-- 购物车模板 -->
+			<script type="text/html" id="cart_template">
+				{{each products prod}}
+				<tr class="cart_product last" data-id="{{prod.id}}">
+					<td class="">
+						<div class="s_img_list">
+							<a href="/html/detail.html?id={{prod.id}}" target="_blank" class="s_img_btn">
+								<img src="{{prod.img}}" />
+							</a>
+						</div>
+					</td>
+					<td class="">
+						<p class="p_name">
+							<a target="_blank" href="/html/detail.html?id={{prod.id}}">{{prod.title}}</a>
+						</p>
+					</td>
+					<td class="p_price">￥{{prod.price}}</td>
+					<td class="content_display">
+						<div class=" p_quantity">
+							<a href="javascript:void(0);" class="btn_decrease">-</a>
+							<input type="text" value="{{prod.amount}}" class="txt_amount"/>
+							<a href="javascript:void(0);" class="btn_increase">+</a>
+						</div>
+					</td>
+					<td class="p_subtotal">￥{{(prod.price * prod.amount).toFixed(2)}}</td>
+					<td>
+						<a href="javascript:void(0);" class="btn_delete" >删除</a>
+						<a href="#">收藏</a>	
+					</td>
+				</tr>
+				{{/each}}
+			</script>
+
+			<tfoot>
+				<tr id="cart_float">
+					<td colspan="2" class="t_l">
+						<div class="order-btn-cons">
+								<span class="total_price">总价（免运费）：<label>￥590</label></span> 
+						</div>
+					</td>
+					<td colspan="4" id="cart_rearrangement">
+						<a class="btn_continue_shopping list_detail">继续购物</a>
+						<button class="cart_submit add_cart" type="submit" >去结算</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+		<div class="guarantee">
+			<ul>
+				<li><img src="/images/detail/icon_official.png" />官方正品保证</li>
+				<li><img src="/images/detail/icon_free.png" />全场免运费</li>
+				<li><img src="/images/detail/icon_security.png" />支付保障</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 最近浏览、收藏 -->
+	<div class="content_bottom">
+		<ul class="content_bottom_title">
+			<li>最近浏览过的产品</li>
+			<li>我的收藏</li>
+		</ul>
+		<div class="content_bottom_content div1">
+			
+		</div>
+		<div class="content_bottom_content div2">
+			
+		</div>
+		<script type="text/html" id="c_about_temp1">
+			<% for (var i = 0; i < 5; i++) { var curr=about[i]; %>
+				<dl class="goods content_center" data-id="{{curr.id}}">
+					<dt><a href="/html/detail.html?id=<%= curr.id %>"><img src="<%= curr.img1 %>" class="curr_img"></a></dt>
+					<dd><a href="/html/detail.html?id=<%= curr.id %>" class="curr_title"><%= curr.title %></a></dd>
+					<p class="curr_volume"><%= curr.volume %>ml</p>
+					<p class="curr_price">¥<%= curr.price %></p>
+					<button class="add_cart">加入购物车</button>
+				</dl>
+			<% } %>
+		</script>
+		<script type="text/html" id="c_about_temp2">
+			<% for (var i = 0; i < 5; i++) { var curr=about[i]; %>
+				<dl class="goods content_center" data-id="{{curr.id}}">
+					<dt><a href="/html/detail.html?id=<%= curr.id %>"><img src="<%= curr.img1 %>" class="curr_img"></a></dt>
+					<dd><a href="/html/detail.html?id=<%= curr.id %>" class="curr_title"><%= curr.title %></a></dd>
+					<p class="curr_volume"><%= curr.volume %>ml</p>
+					<p class="curr_price">¥<%= curr.price %></p>
+					<button class="add_cart">加入购物车</button>
+				</dl>
+			<% } %>
+		</script>
+	</div>
+	<!-- 尾部 -->
+	<footer></footer>
+	<script src="/lib/requirejs/require.js" data-main="/js/cart.js"></script>
+</body>
+
+</html>

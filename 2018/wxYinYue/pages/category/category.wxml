@@ -1,0 +1,84 @@
+<view class="cate">
+  <!-- 头部 -->
+  <view class="cate-header">
+    <text
+      class="cate-header-item {{item.title===currentHeader?'cate-header-item-active':''}}"
+      wx:for="{{header}}"
+      wx:key="{{item.id}}"
+      data-title="{{item.title}}"
+      data-bannertype="{{item.bannerType}}"
+      catchtap="changeCurrentHeader"
+    >{{item.title}}</text>
+  </view>
+  
+  <!-- mask -->
+  <view class="cate-main-bottom-mask" wx:if="{{isShowBottomMask}}">
+    <view class="cate-main-bottom-mask-content">
+      <view class="cate-main-bottom-mask-content-title">
+        排序
+        <icon class="iconfont icon-cha" catchtap="closeBottomMask"></icon>
+      </view>
+      <view class="cate-main-bottom-mask-content-options">
+        <view 
+          class="cate-main-bottom-mask-content-options-item"
+          wx:for="{{bottomMaskData}}"
+          wx:key="item.text"
+          data-type="{{item.type}}"
+          data-title="{{item.text}}"
+          catchtap="selectTimeTap"
+        >
+          <icon class="iconfont icon-{{item.icon}}"></icon>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="cate-main-right-mask">
+    <view class="cate-main-right-mask-main">
+      <view class="cate-main-right-mask-main-title">
+        <view>&lt;</view>
+        <text>筛选</text>
+      </view>
+      <view class="cate-main-right-mask-main-content">
+        <view>
+          <view>艺人</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 内容 -->
+  <scroll-view
+    class="cate-main"
+    scroll-y="false"
+    bindscrolltolower="loadMore"
+    bindscrolltoupper="refresh"
+    lower-threshold="150"
+  >
+    <view class="cate-main-select">
+      <view class="cate-main-select-time">
+        <text catchtap="openBottomMask">{{currentSelect}}</text>
+        <icon class="iconfont icon-single"></icon>
+      </view>
+      <view class="cate-main-select-filter">筛选</view>
+    </view>
+    <view class="cate-main-content">
+      <view
+        class="cate-main-content-item" 
+        wx:for="{{pageDatas}}" 
+        wx:key="{{item.id}}"
+        data-id="{{item.id}}"
+        catchtap="toPageDetail"
+      >
+        <view class="cate-main-content-item-img"><image src="{{item.headImg}}"></image></view>
+        <text>{{item.title}}</text>
+        <view class="cate-main-content-item-txt">
+          ￥{{item.price}}
+          <text>￥{{item.originalPrice}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='cate-main-footer' wx:if="{{currentPage === totalPage}}">
+      嘤嘤嘤，到底了。。。
+    </view>
+  </scroll-view>
+</view>

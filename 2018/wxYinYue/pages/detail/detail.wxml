@@ -1,0 +1,64 @@
+<view class="detail">
+  <view class='detail-main'>
+    <swiper indicator-dots autoplay class="detail-swiper">
+      <block wx:for="{{swipers}}" wx:key="{{item.thumbUrl}}">
+        <swiper-item>
+          <image src="{{item.thumbUrl}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="detail-main-content">
+      <view>{{title}}</view>
+      <text>￥{{price}}</text>
+    </view>
+    <view class="detail-main-guarantee">
+      <view class="detail-main-guarantee-item">
+        <icon class="iconfont icon-wuyou"></icon>
+        <text>无忧退货</text>
+      </view>
+      <view class="detail-main-guarantee-item">
+        <icon class="iconfont icon-zhengpin"></icon>
+        <text>正品保证</text>
+      </view>
+      <view class="detail-main-guarantee-item">
+        <icon class="iconfont icon-zhenggui"></icon>
+        <text>正规引进</text>
+      </view>
+    </view>
+    <!-- modal -->
+    <view class="detai-main-modal" wx:if="{{isModalShow}}">
+      <view class="detail-main-modal-content">
+        <view class="detail-main-modal-content-info">
+          <view class="detail-main-modal-content-info-left">
+            <image src="{{modalHeadImg}}"></image>
+          </view>
+          <view class="detail-main-modal-content-info-right">
+            <view>{{title}}</view>
+            <text>￥{{price}}</text>
+            <icon class="iconfont icon-cha" catchtap="closeModal"></icon>
+          </view>
+        </view>
+        <view class="detail-main-content-count">
+          <view class="detail-main-content-count-title">购买数量</view>
+          <view class="detail-main-content-count-todo">
+            <text class="btn" catchtap="decreaceCount">-</text>
+            <text class="txt">{{count}}</text>
+            <text class="btn" catchtap="increaceCount">+</text>  
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="detail-footer">
+    <view class="detail-footer-left" catchtap="toPageCart">
+      <icon class="iconfont icon-cart">
+        <text class="detail-footer-left-badge" wx:if="{{totalCount !== 0}}">{{totalCount>99?'99+':totalCount}}</text>
+      </icon>
+      <text>购物车</text>
+    </view>
+    <view class="detail-footer-right">
+      <button class="detail-footer-right-buy">立即购买</button>
+      <button class="detail-footer-right-add" catchtap="addToCart">加入购物车</button>
+    </view>
+  </view>
+</view>

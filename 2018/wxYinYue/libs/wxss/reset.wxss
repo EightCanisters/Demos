@@ -1,0 +1,15 @@
+view,textarea {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+input,swipe,swipe-item,view,scroll-view{
+  box-sizing: border-box;
+}

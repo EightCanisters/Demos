@@ -1,0 +1,63 @@
+<view class="cart">
+  <view class="cart-content">
+    <!-- 空购物车 -->
+    <view class="cart-content-empty" wx:if="{{cartData.length===0}}">
+      <view class="cart-content-empty-img">
+        <image src="https://s.yytcdn.com/v2/images/h5/cart_empty.png"></image>
+      </view>
+      <view>购物车还是空的，赶快去逛逛吧~</view>
+      <button catchtap="toPageHome">去逛逛</button>
+    </view>
+    <!-- 购物车 -->
+    <view class="cartlist">
+      <view
+        class="cartlist-item"
+        wx:for="{{cartData}}"
+        wx:key="{{item.id}}"
+        data-id="{{item.id}}"
+        catchtap="toPageDetail"
+      >
+        <icon
+          class="iconfont icon-{{item.isChecked?'xuanzhong':'weixuanzhong'}}"
+          data-id="{{item.id}}"
+          catchtap="changeGoodSelect"
+        ></icon>
+        <view class="cartlist-item-img">
+          <image src="{{item.img}}"></image>
+        </view>
+        <view class="cartlist-item-right">
+          <view class="cartlist-item-right-top">
+            <view class="cartlist-item-right-top-count" wx:if="{{isTodoShow}}">
+              <text class="btn" catchtap="reduceGoodCount" data-id="{{item.id}}">-</text>
+              <text class="txt">{{item.count}}</text>
+              <text class="btn" catchtap="addGoodCount" data-id="{{item.id}}">+</text>
+            </view>
+            <text wx:else="{{isTodoShow}}">{{item.title}}</text>
+          </view>
+          <view class="cartlist-item-right-bottom">
+            <text class="cartlist-item-right-bottom-count">x{{item.count}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+ 
+  <!-- 底部 -->
+  <view class="cart-footer">
+    <view class="cart-footer-left">
+      <icon
+        class="iconfont icon-{{(isAllChecked)?'xuanzhong':'weixuanzhong'}}"
+        catchtap="changeAllChecked"
+      ></icon>
+      <text>全选</text>
+      <view catchtap="changeTodoShow">{{isTodoShow?'完成':'编辑'}}</view>
+    </view>
+    <view class="cart-footer-right-finish" wx:if="{{isTodoShow}}" catchtap="deleteChecked" >删除</view>
+    <view class="cart-footer-right" wx:else="{{isTodoShow}}">
+      <view>合计:</view>
+      <text>￥{{cartTotalPrice}}</text>
+      <button>结算({{cartTotalCount}})</button>
+    </view>
+  </view>
+</view>

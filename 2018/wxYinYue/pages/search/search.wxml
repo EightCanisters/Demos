@@ -1,0 +1,63 @@
+<view class="find">
+  <view class="find-search">
+    <input 
+      type='text' 
+      placeholder='搜索偶像、商品'
+      placeholder-class="find-search-place" 
+      class="find-search-input"
+      bindinput="bindInputData"
+      focus="{{true}}"
+      value="{{inputData}}"
+    >
+      <icon
+        class="iconfont icon-cha find-search-input-icon" 
+        wx:if="{{inputData!==''}}"
+        catchtap="clearInputData"
+      ></icon>
+    </input>
+    <view 
+      class="find-search-location"
+      data-keyword="{{inputData}}"
+      catchtap="toPageList"
+    >
+      搜索
+    </view>
+  </view>
+  <view class="find-content">
+    <!-- 热门搜索 -->
+    <view class="find-content-hot">
+      <view class="find-content-title">热门搜索</view>
+      <view class="find-content-hot-datas">
+        <view
+          class="find-content-hot-item"
+          wx:for="{{hots}}"
+          wx:key="{{item.name}}"
+          data-keyword="{{item.name}}"
+          catchtap="toPageList"
+        >{{item.name}}</view>
+      </view>
+    </view>
+    <!-- 历史记录 -->
+    <view class="find-content-history" wx:if="{{searchHistories.length!==0}}">
+      <view class="find-content-title">历史记录</view>
+      <view class="find-content-history-datas">
+        <view 
+          class="find-content-history-item" 
+          wx:for="{{searchHistories}}"
+          wx:key="{{item.text+Math.random()}}"
+          data-keyword="{{item.text}}"
+          catchtap="toPageList"
+        >
+          <image src="/assets/images/search.png"></image>
+          <view class="find-content-history-item-text">{{item.text}}</view> 
+          <icon 
+            class="iconfont icon-cha" 
+            data-text="{{item.text}}"
+            catchtap="deleteHistoryItem"
+          ></icon>
+        </view>
+      </view>
+      <view class="find-content-deleteall" catchtap="clearSearchHistory">清空历史记录</view>
+    </view>
+  </view>
+</view>
