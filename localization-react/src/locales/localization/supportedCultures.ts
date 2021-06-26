@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 
-import { ICultureItem } from './localization';
+import { ICultureItem } from '.';
 
 export const supportedCultures: Record<string, ICultureItem> = {
   'en-US': {

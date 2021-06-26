@@ -1,51 +1,47 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import cat from './imgs/cat.jpg';
 import './App.css';
+import { LocalContext } from './locales/localeContext';
 
 export enum Languages {
   'en-US' = 'en-US',
   'zh-CN' = 'zh-CN'
 }
 
-function App() {
-  const [currLanguage, setCurrLanguage] = useState(Languages["en-US"]);
+interface IAppState {
+  currLanguage: Languages,
+}
 
-  function switchLanguage(): void {
-    if(currLanguage === Languages["en-US"]) {
-      window.appContext.changeLanguage(Languages["zh-CN"]).then(() => {
-        setCurrLanguage(Languages["zh-CN"]);
-      });
-      return;
-    }
-    window.appContext.changeLanguage(Languages["en-US"]).then(() => {
-      setCurrLanguage(Languages["en-US"]);
-    });
-  };
-
-  function getString(str: any): string {
-    return window.appContext.getString(str);
+class App extends React.Component<any, IAppState, any> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      currLanguage: Languages['en-US'],
+    } 
   }
 
-  return (
-    <div className="App">
-      <h1>当前语言：{currLanguage}</h1>
-      <button onClick={switchLanguage}>切换语言</button>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {getString('App-description')}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {getString('App-learn')}
-        </a>
-      </header>
-    </div>
-  );
-}
+  switchLanguage = (): void => {
+    const { changeLanguage, getCurrentLocale } = this.context;
+    const nextLocale = getCurrentLocale() === Languages['en-US'] ? Languages['zh-CN'] : Languages['en-US'];
+    changeLanguage(nextLocale).then(
+      () => this.setState({currLanguage: nextLocale})
+    );
+  };
+
+  render(){
+    const { getString } = this.context;
+    return (
+      <div className="App">
+        <h1>{getString('App-currLocale') + this.state.currLanguage}</h1>
+        <button onClick={this.switchLanguage}>{getString('App-switch')}</button>
+        <div>
+          <img src={cat} className="App-logo" alt="cat" />
+          <div>{getString('App-myCat')}</div>
+        </div>
+      </div>
+    )}
+  }
+
+App.contextType = LocalContext;
 
 export default App;
