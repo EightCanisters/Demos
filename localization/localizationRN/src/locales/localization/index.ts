@@ -2,10 +2,8 @@ import i18next, { i18n } from 'i18next';
 import { loadResourceBundleAsync } from './helper';
 import { supportedCultures } from './supportedCultures';
 import en from '../resources/en-US/translation.json';
-import type { SupportedCulturesType } from './supportedCultures';
+import * as RNLocalize from 'react-native-localize';
 import { initReactI18next } from 'react-i18next';
-// import LanguageDetector from 'i18next-browser-languagedetector';// Documentation https://github.com/i18next/i18next-browser-languageDetector
-// import XHR from 'i18next-xhr-backend';
 
 // #region variables and type definitions
 const translationNamespace = 'translation';
@@ -20,12 +18,31 @@ export interface ICultureItem {
   englishDescription: string;
 }
 
+export const getPhoneLocale = (): string => {
+  const getCulture = (): string => {
+    return RNLocalize.getLocales()[0].scriptCode
+      ? `${RNLocalize.getLocales()[0].languageCode}-${RNLocalize.getLocales()[0].countryCode}`
+      : defaultLanguage;
+  };
+  const culture = RNLocalize.getLocales()[0].languageTag;
+  return supportedCultures[culture] ? culture : getCulture();
+};
+
 export class Localization {
   constructor(){
     this.getString = this.getString.bind(this);
     this.changeLanguage = this.changeLanguage.bind(this);
     this.getCurrentLocale = this.getCurrentLocale.bind(this);
     this.getSupportedCultures = this.getSupportedCultures.bind(this);
+    this.onChangeLanguage();
+  }
+
+  private onChangeLanguage(): void {
+    RNLocalize.addEventListener('change', () => {
+      const locale = getPhoneLocale();
+      this.i18nextInstance.changeLanguage(locale);
+      this.changeLanguage(locale);
+    });
   }
 
   public readonly i18nextInstance: i18n = i18next.createInstance();
@@ -33,51 +50,16 @@ export class Localization {
   public async initializeAsync(): Promise<void> {
     await this.i18nextInstance
       .use(initReactI18next)
-
-      /*
-       * detect user language
-       * learn more: https://github.com/i18next/i18next-browser-languageDetector
-       */
-
-          //  .use(LanguageDetector)
-
-      /*
-       * init i18next
-       * for all options read: https://www.i18next.com/overview/configuration-options
-       */
       .init({
         lng: defaultLanguage,
         fallbackLng: defaultLanguage,
-        debug: process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
         ns: [translationNamespace],
         defaultNS: translationNamespace,
         interpolation: {
           escapeValue: false, // not needed for react as it escapes by default
         },
       });
-
-    /*
-     * Load default language ('en-US')
-     * We need it even if it's not the selected language so that we have
-     * a fallback for missing strings
-     */
-    Object.keys(this.getSupportedCultures()).forEach(async (language) => {
-      await loadResourceBundleAsync(this.i18nextInstance, language, translationNamespace);
-    })
-
-    // eslint-disable-next-line multiline-comment-style
-    // load current language. This will be used only if we have LanguageDetector that detects the
-    // language and overrides `lng`
-
-    /*
-     *if (this.getCurrentLocale() !== defaultLanguage) {
-     *  await loadResourceBundleAsync(
-     *    this.i18nextInstance,
-     *    this.getCurrentLocale(),
-     *    translationNamespace,
-     *  );
-     *}
-     */
+    await loadResourceBundleAsync(this.i18nextInstance, defaultLanguage, translationNamespace);
   }
 
   public getString(key: LanguageKeys): string {

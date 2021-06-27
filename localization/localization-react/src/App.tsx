@@ -18,8 +18,8 @@ class App extends React.Component<any, IAppState, any> {
     } 
   }
 
-  async componentDidMount() {
-    const cultures = await this.context.loadSupportedCultures()
+  componentDidMount() {
+    const cultures = this.context.getSupportedCultures()
     this.setState({
       supportedCultures: cultures
     })
