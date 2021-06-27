@@ -2,8 +2,6 @@ import React from "react";
 import { LocalContext } from ".";
 import { Localization } from "../localization";
 
-// export const localization = new Localization();
-
 interface ILocalizationProvider {
     readonly locale: Localization;
     readonly children?: React.ReactNode;
