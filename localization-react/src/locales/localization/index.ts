@@ -4,6 +4,7 @@ import { supportedCultures } from './supportedCultures';
 // import type en from './resources/en-US/translation.json';
 import en from '../resources/en-US/translation.json';
 import type { SupportedCulturesType } from './supportedCultures';
+import { initReactI18next } from 'react-i18next';
 // import LanguageDetector from 'i18next-browser-languagedetector';// Documentation https://github.com/i18next/i18next-browser-languageDetector
 // import XHR from 'i18next-xhr-backend';
 
@@ -33,6 +34,8 @@ export class Localization {
 
   public async initializeAsync(): Promise<void> {
     await this.i18nextInstance
+      .use(initReactI18next)
+
       /*
        * detect user language
        * learn more: https://github.com/i18next/i18next-browser-languageDetector
