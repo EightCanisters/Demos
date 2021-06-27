@@ -3,6 +3,7 @@ import { loadResourceBundleAsync } from './helper';
 import { supportedCultures } from './supportedCultures';
 // import type en from './resources/en-US/translation.json';
 import en from '../resources/en-US/translation.json';
+import type { SupportedCulturesType } from './supportedCultures';
 // import LanguageDetector from 'i18next-browser-languagedetector';// Documentation https://github.com/i18next/i18next-browser-languageDetector
 // import XHR from 'i18next-xhr-backend';
 
@@ -11,8 +12,6 @@ const translationNamespace = 'translation';
 export type StringResources = typeof en;
 export type LanguageKeys = keyof StringResources;
 export const defaultLanguage = 'en-US';
-
-// #endregion
 
 export interface ICultureItem {
   name: string;
@@ -27,6 +26,7 @@ export class Localization {
     this.changeLanguage = this.changeLanguage.bind(this);
     this.getCurrentLocale = this.getCurrentLocale.bind(this);
     this.getSupportedCultures = this.getSupportedCultures.bind(this);
+    this.loadSupportedCultures = this.loadSupportedCultures.bind(this);
   }
 
   public readonly i18nextInstance: i18n = i18next.createInstance();
@@ -105,6 +105,14 @@ export class Localization {
 
   public getCurrentLocale(): string {
     return this.i18nextInstance.language;
+  }
+
+  
+
+  protected async loadSupportedCultures(): Promise<SupportedCulturesType> {
+    const supportedCulturesPromise = import('./supportedCultures');
+
+    return (await supportedCulturesPromise).supportedCultures;
   }
 }
 

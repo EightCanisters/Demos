@@ -2,6 +2,8 @@
 
 import { ICultureItem } from '.';
 
+export type SupportedCulturesType = Record<string, ICultureItem>;
+
 export const supportedCultures: Record<string, ICultureItem> = {
   'en-US': {
     name: 'English (United States)',
