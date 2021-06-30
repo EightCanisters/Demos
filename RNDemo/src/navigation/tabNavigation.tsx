@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
-import {routes} from '../navigation/routes';
+import {routes} from './routes';
 import {themedStyleSheet, useTheme} from '../theme';
 import {IFETheme} from '../theme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
