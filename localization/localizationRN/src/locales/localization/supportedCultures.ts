@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 
-import { ICultureItem } from '.';
+import {ICultureItem} from '.';
 
 export type SupportedCulturesType = Record<string, ICultureItem>;
 
@@ -11,10 +11,10 @@ export const supportedCultures: Record<string, ICultureItem> = {
     resourceCenterCode: 'en-US',
     englishDescription: 'United States - English',
   },
-  'zh-CN': {
+  'zh-US': {
     name: '简体中文 (中国)‎',
     description: '中国 - 简体中文',
-    resourceCenterCode: 'zh-CN',
+    resourceCenterCode: 'zh-US',
     englishDescription: 'China - Chinese',
   },
 };

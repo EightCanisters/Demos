@@ -1,9 +1,8 @@
 /* eslint-disable max-lines-per-function */
 // import type en from './resources/en-US/translation.json';
 // import type { i18n } from 'i18next';
-import en from '../resources/en-US/translation.json';
-import { i18n } from 'i18next';
-import { DeepReadonly } from '../../types/core-types';
+import {i18n} from 'i18next';
+import {DeepReadonly} from '../../types/core-types';
 
 export async function loadResourceBundleAsync(
   instance: DeepReadonly<i18n>,
@@ -16,8 +15,8 @@ export async function loadResourceBundleAsync(
     case 'en-US':
       bP = import('../resources/en-US/translation.json');
       break;
-    case 'zh-CN':
-      bP = import('../resources/zh-CN/translation.json');
+    case 'zh-US':
+      bP = import('../resources/zh-US/translation.json');
       break;
 
     default:

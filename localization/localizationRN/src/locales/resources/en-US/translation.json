@@ -1,5 +1,7 @@
 {
-  "App-myCat": "Yichui & Majiang",
-  "App-switch": "Switch language",
-  "App-currLocale": "Current Locale: "
+  "App-title": "FEHuang RN Demo",
+  "Title-home": "Home",
+  "Title-cart": "Cart",
+  "Title-mine": "Mine",
+  "Title-setting": "Settings"
 }
