@@ -20,7 +20,7 @@ const AppEntrance: () => React.ReactElement = () => {
       onReady={(): void => {
         routeNameRef.current = navigationRef.current?.getCurrentRoute()?.name;
       }}>
-      <AppStack.Navigator screenOptions={{headerShown: true}}>
+      <AppStack.Navigator screenOptions={{headerShown: false}}>
         <AppStack.Screen name={t('App-title')} component={DrawerNavigation} />
       </AppStack.Navigator>
     </NavigationContainer>
