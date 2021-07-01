@@ -36,7 +36,7 @@ export class Localization {
     this.onChangeLanguage();
   }
 
-  private onChangeLanguage(): void {
+  public onChangeLanguage(): void {
     RNLocalize.addEventListener('change', () => {
       const locale = getPhoneLocale();
       this.setResourceBundleAsync(locale);
@@ -49,8 +49,8 @@ export class Localization {
 
   public async initializeAsync(): Promise<void> {
     await this.i18nextInstance.use(initReactI18next).init({
-      lng: defaultLanguage,
-      fallbackLng: defaultLanguage,
+      lng: getPhoneLocale(),
+      fallbackLng: getPhoneLocale(),
       ns: [translationNamespace],
       defaultNS: translationNamespace,
       interpolation: {
@@ -101,7 +101,7 @@ export class Localization {
     return this.i18nextInstance.language;
   }
 
-  protected async setResourceBundleAsync(locale: string): Promise<void> {
+  public async setResourceBundleAsync(locale: string): Promise<void> {
     await loadResourceBundleAsync(
       this.i18nextInstance,
       locale,

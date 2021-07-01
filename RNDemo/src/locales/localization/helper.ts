@@ -16,6 +16,7 @@ export async function loadResourceBundleAsync(
       bP = import('../resources/en-US/translation.json');
       break;
     case 'zh-US':
+    case 'zh-CN':
       bP = import('../resources/zh-US/translation.json');
       break;
 
